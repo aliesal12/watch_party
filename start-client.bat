@@ -10,9 +10,9 @@ REM
 REM  Then the friend just double-clicks this file.
 REM ============================================================
 
-set "HOST_IP=PUT_HOST_PUBLIC_IP_HERE"
-set "VIDEO_URL=http://%HOST_IP%:8000/movie.mkv"
-set "VLC_PW=CHANGE_ME"
+set "HOST_IP=175.107.202.121"
+set "VIDEO_URL=http://%HOST_IP%:8000/The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
+set "VLC_PW=Inshal"
 
 set "SYNC_PORT=9000"
 set "VLC_PORT=8080"
