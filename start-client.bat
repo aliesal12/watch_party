@@ -3,19 +3,30 @@ REM ============================================================
 REM  start-client.bat  -  run on the FRIEND'S PC
 REM
 REM  The host (your friend who owns the movie) fills in:
-REM    HOST_IP    = the host's public IP address
+REM    HOST_IP    = the host's address. USE THE TAILSCALE IP (100.x.x.x)
+REM                 if direct public IP fails (ISP blocks same-ISP traffic).
+REM                 See TROUBLESHOOTING-NETWORK.md.
 REM    VIDEO_URL  = http://<HOST_IP>:8975/<filename>
 REM    VLC_PW     = the SAME password the host told you to set in VLC
 REM
 REM  Then the friend just double-clicks this file.
 REM ============================================================
 
-set "HOST_IP=175.107.202.121"
-set "VIDEO_URL=http://%HOST_IP%:8975/The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
+REM ---- SET THESE THREE ----
+REM HOST_IP: the host's Tailscale IP (100.x.x.x) -- run check-tailscale.bat on
+REM          the HOST to get it. (Same-ISP direct public IP is blocked by the
+REM          ISP; Tailscale is the fix. See TROUBLESHOOTING-NETWORK.md.)
+set "HOST_IP=100.X.X.X"
+REM MOVIE_FILE: exact file name as it sits in the host's movie folder.
+set "MOVIE_FILE=The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
+REM VLC_PW: the shared VLC web-interface password.
 set "VLC_PW=Inshal"
+REM -------------------------
 
+set "VIDEO_PORT=8975"
 set "SYNC_PORT=9876"
 set "VLC_PORT=8080"
+set "VIDEO_URL=http://%HOST_IP%:%VIDEO_PORT%/%MOVIE_FILE%"
 
 set "VLC=C:\Program Files\VideoLAN\VLC\vlc.exe"
 if not exist "%VLC%" set "VLC=C:\Program Files (x86)\VideoLAN\VLC\vlc.exe"
