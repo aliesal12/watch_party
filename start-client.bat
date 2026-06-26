@@ -16,7 +16,7 @@ REM ---- SET THESE THREE ----
 REM HOST_IP: the host's Tailscale IP (100.x.x.x) -- run check-tailscale.bat on
 REM          the HOST to get it. (Same-ISP direct public IP is blocked by the
 REM          ISP; Tailscale is the fix. See TROUBLESHOOTING-NETWORK.md.)
-set "HOST_IP=100.X.X.X"
+set "HOST_IP=100.107.158.59"
 REM MOVIE_FILE: exact file name as it sits in the host's movie folder.
 set "MOVIE_FILE=The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
 REM VLC_PW: the shared VLC web-interface password.
