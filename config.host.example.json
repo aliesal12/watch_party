@@ -1,0 +1,15 @@
+{
+  "_comment": "HOST config (your laptop). Copy to config.json and edit. host.py reads config.json by default.",
+
+  "sync_port": 9000,
+  "vlc_host": "127.0.0.1",
+  "vlc_port": 8080,
+  "vlc_password": "CHANGE_ME",
+
+  "poll_interval": 0.25,
+  "seek_threshold": 0.7,
+  "drift_threshold": 1.0,
+  "mute_window": 0.6,
+  "report_time_jitter": 0.7,
+  "heartbeat": 2.0
+}
