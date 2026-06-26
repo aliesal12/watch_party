@@ -4,17 +4,17 @@ REM  start-client.bat  -  run on the FRIEND'S PC
 REM
 REM  The host (your friend who owns the movie) fills in:
 REM    HOST_IP    = the host's public IP address
-REM    VIDEO_URL  = http://<HOST_IP>:8000/<filename>
+REM    VIDEO_URL  = http://<HOST_IP>:8975/<filename>
 REM    VLC_PW     = the SAME password the host told you to set in VLC
 REM
 REM  Then the friend just double-clicks this file.
 REM ============================================================
 
 set "HOST_IP=175.107.202.121"
-set "VIDEO_URL=http://%HOST_IP%:8000/The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
+set "VIDEO_URL=http://%HOST_IP%:8975/The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
 set "VLC_PW=Inshal"
 
-set "SYNC_PORT=9000"
+set "SYNC_PORT=9785"
 set "VLC_PORT=8080"
 
 set "VLC=C:\Program Files\VideoLAN\VLC\vlc.exe"

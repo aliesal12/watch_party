@@ -16,13 +16,13 @@ There are two independent layers:
 
 ```
    YOUR LAPTOP (host)                         FRIEND'S PC (client)
-  movie.mkv ──serve.py──HTTP:8000──────────►  VLC (opens the URL, can seek)
+  movie.mkv ──serve.py──HTTP:8975──────────►  VLC (opens the URL, can seek)
   VLC (local) ◄─127.0.0.1:8080─ host.py                 ▲ 127.0.0.1:8080
-                         host.py ◄──TCP:9000──► client.py
+                         host.py ◄──TCP:9785──► client.py
                        (sync server + clock)     (sync client + de-drift)
 ```
 
-Only ports **8000** (video) and **9000** (sync) are public. VLC's **8080**
+Only ports **8975** (video) and **9785** (sync) are public. VLC's **8080**
 control port stays bound to `127.0.0.1` and is never exposed.
 
 ---
@@ -66,8 +66,8 @@ The friend only needs: `client.py`, `sync_common.py`, `start-client.bat`
 
 ### A. Open your ports
 
-- **Windows Firewall**: allow inbound TCP **8000** and **9000**.
-- **Router**: port-forward TCP **8000** and **9000** to your laptop's LAN IP.
+- **Windows Firewall**: allow inbound TCP **8975** and **9785**.
+- **Router**: port-forward TCP **8975** and **9785** to your laptop's LAN IP.
   Give your laptop a **static LAN IP / DHCP reservation** so it doesn't change.
 - Do **not** forward 8080.
 
@@ -85,7 +85,7 @@ Edit `start-host.bat`: set `MOVIE_DIR`, `MOVIE_FILE`, and `VLC_PW`.
 Double-click **`start-host.bat`** (or run the three commands manually):
 
 ```
-python serve.py --dir "D:\path\to\movies" --port 8000
+python serve.py --dir "D:\path\to\movies" --port 8975
 python host.py --vlc-password YOUR_VLC_PW
 :: and open the movie locally in VLC with the web interface enabled
 ```
@@ -99,7 +99,7 @@ Find your **public IP** (e.g. visit whatismyip.com) and give it to your friend.
 Send your friend the folder with `client.py`, `sync_common.py`, and a
 **`start-client.bat` that you pre-filled** with:
 - `HOST_IP` = your public IP
-- `VIDEO_URL` = `http://<your-ip>:8000/<your-file-name>`
+- `VIDEO_URL` = `http://<your-ip>:8975/<your-file-name>`
 - `VLC_PW` = the shared VLC password
 
 Then your friend:
@@ -137,7 +137,7 @@ Tune in `config.json`:
 ## Verify it works (do these in order)
 
 1. **Transport + seek (make-or-break):** From a *different* device, open
-   `http://<your-public-ip>:8000/<file>` in VLC. It should play **and** let you
+   `http://<your-public-ip>:8975/<file>` in VLC. It should play **and** let you
    drag the seek bar forward/back. If seeking fails, the range server isn't
    reachable / the file isn't indexed (try a lossless remux: `ffmpeg -i in.mkv
    -c copy out.mkv`).
@@ -148,8 +148,8 @@ Tune in `config.json`:
    the other pauses. No ping-pong.
 4. **Seek:** Jump to 45:00 on one side → the other follows. Reverse roles.
 5. **Drift:** Let both play untouched 5–10 min → stay within ~1 s.
-6. **Security:** From outside, confirm `:8080` is **not** reachable; only 8000
-   and 9000 are.
+6. **Security:** From outside, confirm `:8080` is **not** reachable; only 8975
+   and 9785 are.
 
 ---
 
@@ -163,7 +163,7 @@ Tune in `config.json`:
   public IP, or the file name in the URL is wrong (it's case-sensitive-ish; match
   it exactly). Test the URL in his browser first.
 - **Seeking works locally but not for the friend:** that's the range server —
-  make sure he's hitting `serve.py` (port 8000), not VLC's stream output.
+  make sure he's hitting `serve.py` (port 8975), not VLC's stream output.
 - **Stutters/buffering for the friend:** that's bandwidth, not quality. His VLC
   buffers; quality stays full. Raise VLC's network caching
   (`Tools → Preferences → Input/Codecs → Network caching`) on his side.
@@ -178,6 +178,6 @@ Tune in `config.json`:
 - `serve.py` serves only the folder you point it at — use a **dedicated movie
   folder**, never your home directory.
 - Optional: run `serve.py --token SECRET`; then the URL is
-  `http://<ip>:8000/<file>?token=SECRET` so random port-scanners can't grab it.
+  `http://<ip>:8975/<file>?token=SECRET` so random port-scanners can't grab it.
 - Stop everything (close the windows / Ctrl+C) when you're done to close the
   open ports' usefulness.

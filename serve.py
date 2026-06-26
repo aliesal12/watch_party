@@ -12,9 +12,9 @@ decodes a bit-for-bit identical stream. This is the whole point.
 Stdlib only (no pip installs needed).
 
 Usage:
-    python serve.py                       # serve current dir on 0.0.0.0:8000
-    python serve.py --dir "D:\\Movies" --port 8000
-    python serve.py --dir "D:\\Movies" --port 8000 --token mysecret
+    python serve.py                       # serve current dir on 0.0.0.0:8975
+    python serve.py --dir "D:\\Movies" --port 8975
+    python serve.py --dir "D:\\Movies" --port 8975 --token mysecret
 
 If --token is given, every request must include ?token=mysecret
 (a tiny guard so random port-scanners can't pull your movie).
@@ -180,7 +180,7 @@ def main():
     ap = argparse.ArgumentParser(description="Range-aware static file server for VLC streaming.")
     ap.add_argument("--dir", default=".", help="Directory containing the video file(s).")
     ap.add_argument("--host", default="0.0.0.0", help="Bind address (default: all interfaces).")
-    ap.add_argument("--port", type=int, default=8000, help="TCP port to serve on (Port A).")
+    ap.add_argument("--port", type=int, default=8975, help="TCP port to serve on (Port A).")
     ap.add_argument("--token", default=None, help="Optional ?token=... required on every request.")
     args = ap.parse_args()
 

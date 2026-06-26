@@ -12,8 +12,8 @@ set "MOVIE_DIR=D:\Movies\The Amazing Spiderman (2012)"
 set "MOVIE_FILE=The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
 set "VLC_PW=Inshal"
 
-set "VIDEO_PORT=8000"
-set "SYNC_PORT=9000"
+set "VIDEO_PORT=8975"
+set "SYNC_PORT=9785"
 set "VLC_PORT=8080"
 
 set "VLC=D:\Softwares\VideoLAN\VLC\vlc.exe"
@@ -23,6 +23,13 @@ echo.
 echo === VLC Watch-Party HOST ===
 echo Movie     : %MOVIE_DIR%\%MOVIE_FILE%
 echo Video port: %VIDEO_PORT%   Sync port: %SYNC_PORT%
+echo.
+
+REM Add Windows Firewall inbound rules for both ports (silently if already exist).
+echo Ensuring Windows Firewall allows ports %VIDEO_PORT% and %SYNC_PORT%...
+netsh advfirewall firewall add rule name="VLC Watch-Party Video %VIDEO_PORT%" dir=in action=allow protocol=TCP localport=%VIDEO_PORT% >nul 2>&1
+netsh advfirewall firewall add rule name="VLC Watch-Party Sync %SYNC_PORT%" dir=in action=allow protocol=TCP localport=%SYNC_PORT% >nul 2>&1
+echo Done.
 echo.
 
 REM 1) Open VLC locally with the Web (HTTP/Lua) interface enabled, playing your file.

@@ -2,7 +2,7 @@
   "_comment": "CLIENT config (friend's PC). Copy to config.json and edit host_ip. client.py reads config.json by default.",
 
   "host_ip": "YOUR_FRIENDS_HOST_PUBLIC_IP",
-  "sync_port": 9000,
+  "sync_port": 9785,
   "vlc_host": "127.0.0.1",
   "vlc_port": 8080,
   "vlc_password": "CHANGE_ME",
