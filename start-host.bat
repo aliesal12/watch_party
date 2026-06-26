@@ -8,15 +8,15 @@ REM    MOVIE_FILE = the video file name
 REM    VLC_PW     = the password you set in VLC's Web interface
 REM ============================================================
 
-set "MOVIE_DIR=D:\Ali Stuff\stream\movies"
-set "MOVIE_FILE=movie.mkv"
-set "VLC_PW=CHANGE_ME"
+set "MOVIE_DIR=D:\Movies\The Amazing Spiderman (2012)"
+set "MOVIE_FILE=The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
+set "VLC_PW=Inshal"
 
 set "VIDEO_PORT=8000"
 set "SYNC_PORT=9000"
 set "VLC_PORT=8080"
 
-set "VLC=C:\Program Files\VideoLAN\VLC\vlc.exe"
+set "VLC=D:\Softwares\VideoLAN\VLC\vlc.exe"
 if not exist "%VLC%" set "VLC=C:\Program Files (x86)\VideoLAN\VLC\vlc.exe"
 
 echo.
