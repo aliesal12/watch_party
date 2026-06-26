@@ -14,7 +14,7 @@ set "HOST_IP=175.107.202.121"
 set "VIDEO_URL=http://%HOST_IP%:8975/The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
 set "VLC_PW=Inshal"
 
-set "SYNC_PORT=9785"
+set "SYNC_PORT=9876"
 set "VLC_PORT=8080"
 
 set "VLC=C:\Program Files\VideoLAN\VLC\vlc.exe"

@@ -13,7 +13,7 @@ set "MOVIE_FILE=The.Amazing.Spiderman.2012.720p.BrRip.x264.YIFY.mp4"
 set "VLC_PW=Inshal"
 
 set "VIDEO_PORT=8975"
-set "SYNC_PORT=9785"
+set "SYNC_PORT=9876"
 set "VLC_PORT=8080"
 
 set "VLC=D:\Softwares\VideoLAN\VLC\vlc.exe"

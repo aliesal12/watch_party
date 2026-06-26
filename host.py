@@ -11,7 +11,7 @@ Stdlib only (asyncio TCP, newline-delimited JSON). No pip installs.
 Usage:
     python host.py                      # reads config.json (or defaults)
     python host.py --config config.json
-    python host.py --port 9785 --vlc-password mypw
+    python host.py --port 9876 --vlc-password mypw
 """
 
 import argparse
@@ -23,7 +23,7 @@ from sync_common import VlcController, SyncEngine, run_session
 
 
 DEFAULTS = {
-    "sync_port": 9785,          # Port B (public)
+    "sync_port": 9876,          # Port B (public)
     "vlc_host": "127.0.0.1",
     "vlc_port": 8080,
     "vlc_password": "",

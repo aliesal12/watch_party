@@ -25,7 +25,7 @@ from sync_common import VlcController, SyncEngine, run_session
 
 DEFAULTS = {
     "host_ip": "127.0.0.1",     # YOUR public IP (the friend fills this in)
-    "sync_port": 9785,          # Port B
+    "sync_port": 9876,          # Port B
     "vlc_host": "127.0.0.1",
     "vlc_port": 8080,
     "vlc_password": "",

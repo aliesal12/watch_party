@@ -18,11 +18,11 @@ There are two independent layers:
    YOUR LAPTOP (host)                         FRIEND'S PC (client)
   movie.mkv ──serve.py──HTTP:8975──────────►  VLC (opens the URL, can seek)
   VLC (local) ◄─127.0.0.1:8080─ host.py                 ▲ 127.0.0.1:8080
-                         host.py ◄──TCP:9785──► client.py
+                         host.py ◄──TCP:9876──► client.py
                        (sync server + clock)     (sync client + de-drift)
 ```
 
-Only ports **8975** (video) and **9785** (sync) are public. VLC's **8080**
+Only ports **8975** (video) and **9876** (sync) are public. VLC's **8080**
 control port stays bound to `127.0.0.1` and is never exposed.
 
 ---
@@ -66,8 +66,8 @@ The friend only needs: `client.py`, `sync_common.py`, `start-client.bat`
 
 ### A. Open your ports
 
-- **Windows Firewall**: allow inbound TCP **8975** and **9785**.
-- **Router**: port-forward TCP **8975** and **9785** to your laptop's LAN IP.
+- **Windows Firewall**: allow inbound TCP **8975** and **9876**.
+- **Router**: port-forward TCP **8975** and **9876** to your laptop's LAN IP.
   Give your laptop a **static LAN IP / DHCP reservation** so it doesn't change.
 - Do **not** forward 8080.
 
@@ -149,7 +149,7 @@ Tune in `config.json`:
 4. **Seek:** Jump to 45:00 on one side → the other follows. Reverse roles.
 5. **Drift:** Let both play untouched 5–10 min → stay within ~1 s.
 6. **Security:** From outside, confirm `:8080` is **not** reachable; only 8975
-   and 9785 are.
+   and 9876 are.
 
 ---
 

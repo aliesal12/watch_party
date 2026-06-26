@@ -1,7 +1,7 @@
 {
   "_comment": "HOST config (your laptop). Copy to config.json and edit. host.py reads config.json by default.",
 
-  "sync_port": 9785,
+  "sync_port": 9876,
   "vlc_host": "127.0.0.1",
   "vlc_port": 8080,
   "vlc_password": "Inshal",
