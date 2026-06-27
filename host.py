@@ -29,7 +29,7 @@ DEFAULTS = {
     "vlc_password": "",
     "poll_interval": 0.25,
     "seek_threshold": 0.7,
-    "drift_threshold": 1.0,
+    "drift_threshold": 1.5,
     "mute_window": 0.6,
     "report_time_jitter": 0.7,
     "heartbeat": 2.0,

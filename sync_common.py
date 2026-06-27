@@ -178,7 +178,7 @@ class SyncEngine:
         self,
         origin: str,
         seek_threshold: float = 0.7,
-        drift_threshold: float = 1.0,
+        drift_threshold: float = 1.5,
         mute_window: float = 0.6,
         report_time_jitter: float = 0.7,
     ):
